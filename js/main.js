@@ -3,10 +3,11 @@
   var form = document.getElementById('formular');
   if (!form) return;
 
-  var namen = { wartung: 'Wartung', heizung: 'Neue Heizung', bad: 'Bad und Sanitär', frage: 'Frage', bewerbung: 'Bewerbung' };
-  var knopf = { wartung: 'Wartung anfragen', heizung: 'Neue Heizung anfragen', bad: 'Bad anfragen', frage: 'Frage senden', bewerbung: 'Bewerbung senden' };
+  var namen = { wartung: 'Wartung', waermepumpe: 'Wärmepumpe', heizung: 'Neue Heizung', bad: 'Bad und Sanitär', frage: 'Frage', bewerbung: 'Bewerbung' };
+  var knopf = { wartung: 'Wartung anfragen', waermepumpe: 'Wärmepumpe anfragen', heizung: 'Neue Heizung anfragen', bad: 'Bad anfragen', frage: 'Frage senden', bewerbung: 'Bewerbung senden' };
   var danke = {
     wartung: 'Danke! In der fertigen Seite käme Ihre Wartungsanfrage jetzt als Mail bei Jörg Ehling an.',
+    waermepumpe: 'Danke! In der fertigen Seite käme Ihre Anfrage zur Wärmepumpe jetzt als Mail bei Jörg Ehling an.',
     heizung: 'Danke! In der fertigen Seite käme Ihre Anfrage zur neuen Heizung jetzt als Mail bei Jörg Ehling an.',
     bad: 'Danke! In der fertigen Seite käme Ihre Anfrage zum Bad jetzt als Mail bei Jörg Ehling an.',
     frage: 'Danke! In der fertigen Seite käme Ihre Frage jetzt als Mail bei Jörg Ehling an.',
@@ -15,9 +16,10 @@
   var nachrichtLabel = { frage: 'Ihre Frage', bewerbung: 'Ein paar Sätze zu Ihnen' };
   var nachrichtHilfe = { frage: 'Was möchten Sie wissen?', bewerbung: 'Was reizt Sie am Handwerk?' };
   var zeilen = {
-    wart: ['wartung'], geraet: ['wartung', 'heizung'], letzte: ['wartung'],
-    wunsch: ['heizung'], flaeche: ['heizung'], baujahr: ['heizung'],
-    teile: ['bad'], badm2: ['bad'], wann: ['wartung', 'heizung', 'bad'],
+    wart: ['wartung'], geraet: ['wartung', 'heizung', 'waermepumpe'], letzte: ['wartung'],
+    wunsch: ['heizung'], flaeche: ['heizung', 'waermepumpe'], baujahr: ['heizung', 'waermepumpe'],
+    flaechen: ['waermepumpe'], selbst: ['waermepumpe'],
+    teile: ['bad'], badm2: ['bad'], wann: ['wartung', 'waermepumpe', 'heizung', 'bad'],
     stelle: ['bewerbung'], nachricht: ['frage']
   };
   var bewegt = {};
@@ -70,7 +72,7 @@
       setze(r, bewegt[r] ? 'ca. ' + v : '');
     });
     setze('anliegen', namen[a]);
-    ['wart', 'geraet', 'letzte', 'wunsch', 'baujahr', 'wann', 'stelle'].forEach(function (k) { setze(k, wert(k)); });
+    ['wart', 'geraet', 'letzte', 'wunsch', 'baujahr', 'flaechen', 'selbst', 'wann', 'stelle'].forEach(function (k) { setze(k, wert(k)); });
     setze('teile', kurz(wert('teile'), 30));
     setze('nachricht', kurz(wert('nachricht'), 30));
     var n = wert('name'), o = wert('ort'), k = wert('kontakt');

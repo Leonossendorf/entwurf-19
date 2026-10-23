@@ -301,3 +301,21 @@ input[type=range]:focus-visible { outline: 3px solid var(--glut); outline-offset
 .aus-cta { margin-top: 18px; }
 @media (max-width: 860px) { .neu-in { grid-template-columns: 1fr; gap: 32px; } }
 @media (max-width: 600px) { .fragen { padding: 20px; } .weiche span { font-size: 15.5px; padding: 0 14px; } }
+
+/* Wärmepumpe (dritte Runde) */
+.wege-block .leistungen { grid-template-columns: repeat(3, 1fr); }
+.leistung-wp { grid-column: span 2; display: grid; grid-template-columns: 1.15fr 1fr; background: var(--anthrazit); color: #E5E1DA; box-shadow: none; }
+.leistung-wp .l-bild { aspect-ratio: auto; min-height: 100%; }
+.leistung-wp .l-text { padding: 30px 30px 32px; justify-content: center; }
+.leistung-wp h3 { color: #fff; font-size: 34px; }
+.leistung-wp .l-text p { color: #CFCAC1; font-size: 17px; }
+.leistung-wp .l-link { color: #fff; border-bottom: 2px solid var(--rot); align-self: flex-start; margin-top: 10px; }
+.l-marke { font: 700 14px/1 var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--glut) !important; margin-bottom: 10px; }
+.staerken { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.staerken li { background: var(--putz); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 15px; }
+.staerken li::before { content: "✓ "; color: var(--rot); font-weight: 700; }
+.wp-bild { position: relative; border-radius: 10px; overflow: hidden; margin-bottom: 20px; aspect-ratio: 16 / 9; }
+.wp-bild img { width: 100%; height: 100%; object-fit: cover; }
+.quelle { font-size: 13px; color: var(--stahl); margin: 14px 0 0; border-top: 1px solid var(--linie); padding-top: 12px; }
+@media (max-width: 1080px) { .wege-block .leistungen { grid-template-columns: repeat(2, 1fr); } .leistung-wp { grid-column: span 2; } }
+@media (max-width: 600px) { .wege-block .leistungen { grid-template-columns: 1fr; } .leistung-wp { grid-column: auto; grid-template-columns: 1fr; } .leistung-wp .l-bild { aspect-ratio: 4 / 3; } .leistung-wp .l-text { padding: 22px 20px 24px; } .leistung-wp h3 { font-size: 28px; } }
