@@ -21,8 +21,9 @@
     </a>
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
-      <a href="#anfrage">Wartung anfragen</a>
-      <a href="#ausbildung">Ausbildung</a>
+      <a href="#neue-heizung">Neue Heizung</a>
+      <a href="#anfrage">Anfrage</a>
+      <a href="#ausbildung">Jobs</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="btn btn-tel kopf-tel" href="tel:+492553977960"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span>02553 97 79 60</span></a>
@@ -40,7 +41,7 @@
       <p class="hero-lead">Jörg Ehling installiert und wartet Heizungen und modernisiert Bäder. Der Meisterbetrieb sitzt an der Amselstraße, ein Anruf genügt.</p>
       <div class="hero-cta">
         <a class="btn btn-rot" href="tel:+492553977960"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>02553 97 79 60</a>
-        <a class="btn btn-hell" href="#anfrage">Wartung anfragen</a>
+        <a class="btn btn-hell" href="#anfrage" data-weiche="wartung">Wartung anfragen</a>
       </div>
       <ul class="hero-fakten">
         <li><b>Mo–Do</b> 8–17 Uhr · <b>Fr</b> 8–13 Uhr</li>
@@ -119,6 +120,53 @@
   </div>
 </section>
 
+<!-- Wege: Einstieg nach Anliegen -->
+<section id="leistungen" class="block wege-block">
+  <div class="wrap">
+    <p class="dachzeile">Leistungen</p>
+    <h2>Was steht bei Ihnen an?</h2>
+    <div class="leistungen">
+      <article class="leistung leistung-wartung">
+        <div class="l-bild l-zeichnung">
+          <figure class="aufkleber aufkleber-mini" aria-hidden="true">
+            <div class="ak-kopf"><span class="ak-klein">Ihr Kundendienst</span><span class="ak-name">Jörg Ehling</span></div>
+            <div class="ak-koerper"><div class="ak-feld"><span>Gewartet</span><i class="hand">✓</i></div><div class="ak-feld"><span>Nächste Wartung</span><i class="hand">nächstes Jahr</i></div></div>
+          </figure>
+        </div>
+        <div class="l-text">
+          <h3>Wartung und Störung</h3>
+          <p>Die Wartung ist fällig oder etwas stimmt nicht mit der Heizung? Termin in einer Minute anfragen.</p>
+          <a class="l-link" href="#anfrage" data-weiche="wartung">Wartung anfragen →</a>
+        </div>
+      </article>
+      <article class="leistung">
+        <div class="l-bild"><img src="img/heizung.jpg" alt="Heizungsraum mit Rohren, Ventilen und Pumpe (Beispielbild)" loading="lazy" width="1400" height="931"><span class="bsp">Beispielbild</span></div>
+        <div class="l-text">
+          <h3>Neue Heizung</h3>
+          <p>Die alte Heizung soll raus? Einbau vom Meisterbetrieb aus Ochtrup, vorher in Ruhe besprochen.</p>
+          <a class="l-link" href="#neue-heizung">Fragen und Ablauf →</a>
+        </div>
+      </article>
+      <article class="leistung">
+        <div class="l-bild"><img src="img/bad.jpg" alt="Modernes Bad mit bodengleicher Dusche und Glaswand (Beispielbild)" loading="lazy" width="1400" height="933"><span class="bsp">Beispielbild</span></div>
+        <div class="l-text">
+          <h3>Bad und Sanitär</h3>
+          <p>Ein neues Bad, neue Leitungen oder Armaturen: Sanitärinstallation und Klempnerarbeiten im ganzen Haus.</p>
+          <a class="l-link" href="#anfrage" data-weiche="bad">Bad anfragen →</a>
+        </div>
+      </article>
+      <article class="leistung leistung-job">
+        <div class="l-bild"><img src="img/sanitaer.jpg" alt="Installateur schließt einen Siphon unter dem Waschbecken an (Beispielbild)" loading="lazy" width="1400" height="1050"><span class="bsp">Beispielbild</span></div>
+        <div class="l-text">
+          <h3>Arbeiten bei Ehling</h3>
+          <p>Praktikum, Ausbildung oder Job im SHK-Handwerk, direkt in Ochtrup.</p>
+          <a class="l-link" href="#ausbildung">Bewerben →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- Heizung kalt -->
 <section class="kalt" aria-labelledby="kalt-h">
   <div class="wrap kalt-in">
@@ -130,130 +178,180 @@
   </div>
 </section>
 
-<!-- Leistungen -->
-<section id="leistungen" class="block">
-  <div class="wrap">
-    <p class="dachzeile">Leistungen</p>
-    <h2>Was Jörg Ehling für Sie macht</h2>
-    <div class="leistungen">
-      <article class="leistung">
-        <div class="l-bild"><img src="img/heizung.jpg" alt="Heizungsraum mit Rohren, Ventilen und Pumpe (Beispielbild)" loading="lazy" width="1400" height="931"><span class="bsp">Beispielbild</span></div>
-        <div class="l-text">
-          <h3>Heizungsinstallation</h3>
-          <p>Neue Heizung oder Umbau der bestehenden: Einbau vom Meisterbetrieb aus Ochtrup.</p>
-          <a class="l-link" href="#anfrage" data-anliegen="heizung">Neue Heizung anfragen →</a>
-        </div>
-      </article>
-      <article class="leistung leistung-wartung">
-        <div class="l-bild l-zeichnung">
-          <figure class="aufkleber aufkleber-mini" aria-hidden="true">
-            <div class="ak-kopf"><span class="ak-klein">Ihr Kundendienst</span><span class="ak-name">Jörg Ehling</span></div>
-            <div class="ak-koerper"><div class="ak-feld"><span>Gewartet</span><i class="hand">✓</i></div><div class="ak-feld"><span>Nächste Wartung</span><i class="hand">nächstes Jahr</i></div></div>
-          </figure>
-        </div>
-        <div class="l-text">
-          <h3>Heizungswartung</h3>
-          <p>Regelmäßig gewartet, damit die Heizung zuverlässig läuft, wenn es draußen kalt wird.</p>
-          <a class="l-link" href="#anfrage" data-anliegen="wartung">Wartung anfragen →</a>
-        </div>
-      </article>
-      <article class="leistung">
-        <div class="l-bild"><img src="img/bad.jpg" alt="Modernes Bad mit bodengleicher Dusche und Glaswand (Beispielbild)" loading="lazy" width="1400" height="933"><span class="bsp">Beispielbild</span></div>
-        <div class="l-text">
-          <h3>Badmodernisierung</h3>
-          <p>Das alte Bad soll neu werden? Die Installation dafür plant und baut Jörg Ehling.</p>
-          <a class="l-link" href="#anfrage" data-anliegen="bad">Bad anfragen →</a>
-        </div>
-      </article>
-      <article class="leistung">
-        <div class="l-bild"><img src="img/sanitaer.jpg" alt="Installateur schließt einen Siphon unter dem Waschbecken an (Beispielbild)" loading="lazy" width="1400" height="1050"><span class="bsp">Beispielbild</span></div>
-        <div class="l-text">
-          <h3>Sanitär und Wasser</h3>
-          <p>Leitungen, Anschlüsse, Armaturen: Sanitärinstallation und Klempnerarbeiten im ganzen Haus.</p>
-          <a class="l-link" href="#anfrage" data-anliegen="sanitaer">Anfrage stellen →</a>
-        </div>
-      </article>
+<!-- Neue Heizung -->
+<section id="neue-heizung" class="block neu">
+  <div class="wrap neu-in">
+    <div>
+      <p class="dachzeile">Neue Heizung</p>
+      <h2>Erst sprechen, dann planen.</h2>
+      <p class="lead">Welche Heizung zu Ihrem Haus passt, hängt von mehr ab als vom Gerät. Jörg Ehling sieht sich Haus und Anlage an und bespricht mit Ihnen, was sinnvoll ist. Die Wartung danach kommt aus derselben Hand.</p>
+      <ol class="schritte">
+        <li><b>Anfrage</b><span>Telefon oder E-Mail genügt, ein paar Eckdaten helfen.</span></li>
+        <li><b>Termin vor Ort</b><span>Haus, Heizkörper und alte Anlage ansehen.</span></li>
+        <li><b>Vorschlag und Angebot</b><span>Was passt, was es kostet, welche Förderung infrage kommt.</span></li>
+        <li><b>Einbau</b><span>Vom Meisterbetrieb, danach regelmäßig gewartet.</span></li>
+      </ol>
+      <a class="btn btn-rot" href="#anfrage" data-weiche="heizung">Neue Heizung anfragen</a>
+    </div>
+    <div class="fragen">
+      <h3>Was Kunden oft fragen</h3>
+      <details open>
+        <summary>Passt eine Wärmepumpe zu meinem Haus?</summary>
+        <p>Das hängt vor allem von der Dämmung, den Heizkörpern und der nötigen Vorlauftemperatur ab. Bei einem Termin vor Ort lässt sich das klären.</p>
+      </details>
+      <details>
+        <summary>Gibt es Förderung?</summary>
+        <p>Für viele neue Heizungen gibt es staatliche Zuschüsse. Welche infrage kommt, klären Sie am besten vor der Beauftragung, denn der Antrag muss meist vorher gestellt werden.</p>
+      </details>
+      <details>
+        <summary>Was kostet eine neue Heizung?</summary>
+        <p>Das hängt von Haus, Heizungsart und Umfang ab. Nach dem Termin vor Ort bekommen Sie ein Angebot, mit dem Sie planen können.</p>
+      </details>
+      <details>
+        <summary>Was brauche ich für die Anfrage?</summary>
+        <p>Nur Ihre Telefonnummer oder E-Mail. Wohnfläche, Baujahr und die heutige Heizung helfen, sind aber freiwillig.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- Anfrage mit Live-Aufkleber -->
+<!-- Ein Formular mit Weichen und Live-Aufkleber -->
 <section id="anfrage" class="block anfrage-block">
   <div class="wrap">
     <p class="dachzeile">Anfrage</p>
-    <h2>Anfrage oder Nachricht, in einer Minute</h2>
-    <p class="lead">Wartung, neue Heizung, Bad oder einfach eine Frage: Ein paar Angaben genügen. Der Aufkleber füllt sich beim Ausfüllen, so sehen Sie, was bei Jörg Ehling ankommt.</p>
+    <h2>Anfrage, Frage oder Bewerbung</h2>
+    <p class="lead">Ein Formular für alles. Nötig ist nur Ihre Telefonnummer oder E-Mail, alles andere hilft, ist aber freiwillig. Der Aufkleber zeigt, was bei Jörg Ehling ankommt.</p>
 
     <div class="anfrage">
       <form class="formular" id="formular" novalidate>
-        <fieldset class="chips" id="anliegen">
+        <fieldset class="chips weiche">
           <legend>Worum geht es?</legend>
-          <label><input type="radio" name="anliegen" value="wartung" checked><span>Wartung</span></label>
+          <label><input type="radio" name="anliegen" value="wartung" checked><span>Wartung und Störung</span></label>
           <label><input type="radio" name="anliegen" value="heizung"><span>Neue Heizung</span></label>
-          <label><input type="radio" name="anliegen" value="bad"><span>Bad</span></label>
-          <label><input type="radio" name="anliegen" value="sanitaer"><span>Sanitär</span></label>
-          <label><input type="radio" name="anliegen" value="frage"><span>Allgemeine Frage</span></label>
+          <label><input type="radio" name="anliegen" value="bad"><span>Bad und Sanitär</span></label>
+          <label><input type="radio" name="anliegen" value="frage"><span>Frage</span></label>
+          <label><input type="radio" name="anliegen" value="bewerbung"><span>Bewerbung</span></label>
         </fieldset>
 
-        <fieldset class="chips" data-zeige="wartung heizung">
-          <legend>Welche Heizung haben Sie?</legend>
-          <label><input type="radio" name="geraet" value="Gasheizung"><span>Gas</span></label>
-          <label><input type="radio" name="geraet" value="Ölheizung"><span>Öl</span></label>
-          <label><input type="radio" name="geraet" value="Wärmepumpe"><span>Wärmepumpe</span></label>
-          <label><input type="radio" name="geraet" value="Pellets / Holz"><span>Pellets / Holz</span></label>
-          <label><input type="radio" name="geraet" value="weiß nicht"><span>Weiß ich nicht</span></label>
-        </fieldset>
+        <div class="zusatz">
+          <fieldset class="chips" data-zeige="wartung">
+            <legend>Was ist los?</legend>
+            <label><input type="radio" name="wart" value="Wartung fällig"><span>Wartung ist fällig</span></label>
+            <label><input type="radio" name="wart" value="Etwas stimmt nicht"><span>Etwas stimmt nicht</span></label>
+          </fieldset>
+          <fieldset class="chips" data-zeige="wartung heizung">
+            <legend>Welche Heizung haben Sie heute?</legend>
+            <label><input type="radio" name="geraet" value="Gas"><span>Gas</span></label>
+            <label><input type="radio" name="geraet" value="Öl"><span>Öl</span></label>
+            <label><input type="radio" name="geraet" value="Wärmepumpe"><span>Wärmepumpe</span></label>
+            <label><input type="radio" name="geraet" value="Pellets / Holz"><span>Pellets / Holz</span></label>
+            <label><input type="radio" name="geraet" value="weiß nicht"><span>Weiß ich nicht</span></label>
+          </fieldset>
+          <fieldset class="chips" data-zeige="wartung">
+            <legend>Letzte Wartung</legend>
+            <label><input type="radio" name="letzte" value="dieses Jahr"><span>Dieses Jahr</span></label>
+            <label><input type="radio" name="letzte" value="letztes Jahr"><span>Letztes Jahr</span></label>
+            <label><input type="radio" name="letzte" value="länger her"><span>Länger her</span></label>
+            <label><input type="radio" name="letzte" value="weiß nicht"><span>Weiß ich nicht</span></label>
+          </fieldset>
 
-        <div class="feld" data-zeige="wartung">
-          <label for="letzte">Letzte Wartung</label>
-          <select id="letzte" name="letzte">
-            <option value="">bitte wählen</option>
-            <option>in diesem Jahr</option>
-            <option>im letzten Jahr</option>
-            <option>vor mehr als zwei Jahren</option>
-            <option>weiß ich nicht</option>
-          </select>
+          <fieldset class="chips" data-zeige="heizung">
+            <legend>Woran denken Sie?</legend>
+            <label><input type="radio" name="wunsch" value="noch offen"><span>Noch offen</span></label>
+            <label><input type="radio" name="wunsch" value="Wärmepumpe"><span>Wärmepumpe</span></label>
+            <label><input type="radio" name="wunsch" value="Gas"><span>Gas</span></label>
+            <label><input type="radio" name="wunsch" value="Hybrid"><span>Hybrid</span></label>
+          </fieldset>
+          <div class="feld regler" data-zeige="heizung">
+            <label for="flaeche">Wohnfläche, ungefähr <output id="flaeche-out" for="flaeche">140 m²</output></label>
+            <input id="flaeche" name="flaeche" type="range" min="50" max="300" step="10" value="140">
+          </div>
+          <fieldset class="chips" data-zeige="heizung">
+            <legend>Baujahr des Hauses</legend>
+            <label><input type="radio" name="baujahr" value="vor 1980"><span>Vor 1980</span></label>
+            <label><input type="radio" name="baujahr" value="1980 bis 2000"><span>1980 bis 2000</span></label>
+            <label><input type="radio" name="baujahr" value="nach 2000"><span>Nach 2000</span></label>
+            <label><input type="radio" name="baujahr" value="weiß nicht"><span>Weiß ich nicht</span></label>
+          </fieldset>
+
+          <fieldset class="chips" data-zeige="bad">
+            <legend>Was soll neu werden? <small>mehrere möglich</small></legend>
+            <label><input type="checkbox" name="teile" value="Dusche"><span>Dusche</span></label>
+            <label><input type="checkbox" name="teile" value="Badewanne"><span>Badewanne</span></label>
+            <label><input type="checkbox" name="teile" value="WC"><span>WC</span></label>
+            <label><input type="checkbox" name="teile" value="Waschtisch"><span>Waschtisch</span></label>
+            <label><input type="checkbox" name="teile" value="komplettes Bad"><span>Komplettes Bad</span></label>
+            <label><input type="checkbox" name="teile" value="Leitungen / Armaturen"><span>Leitungen / Armaturen</span></label>
+          </fieldset>
+          <div class="feld regler" data-zeige="bad">
+            <label for="badm2">Größe des Bads, ungefähr <output id="badm2-out" for="badm2">8 m²</output></label>
+            <input id="badm2" name="badm2" type="range" min="3" max="20" step="1" value="8">
+          </div>
+
+          <fieldset class="chips" data-zeige="wartung heizung bad">
+            <legend>Wann passt es Ihnen?</legend>
+            <label><input type="radio" name="wann" value="so bald wie möglich"><span>So bald wie möglich</span></label>
+            <label><input type="radio" name="wann" value="in den nächsten Wochen"><span>In den nächsten Wochen</span></label>
+            <label><input type="radio" name="wann" value="ist nicht eilig"><span>Ist nicht eilig</span></label>
+          </fieldset>
+
+          <fieldset class="chips" data-zeige="bewerbung">
+            <legend>Was suchen Sie?</legend>
+            <label><input type="radio" name="stelle" value="Praktikum"><span>Praktikum</span></label>
+            <label><input type="radio" name="stelle" value="Ausbildung"><span>Ausbildung</span></label>
+            <label><input type="radio" name="stelle" value="Geselle / Fachkraft"><span>Geselle / Fachkraft</span></label>
+            <label><input type="radio" name="stelle" value="Helfer"><span>Helfer</span></label>
+            <label><input type="radio" name="stelle" value="initiativ"><span>Initiativ</span></label>
+          </fieldset>
+          <div class="feld" data-zeige="bewerbung">
+            <label for="schule">Alter und Schule oder Beruf <small>freiwillig</small></label>
+            <input id="schule" name="schule" type="text" placeholder="z. B. 15, Realschule Ochtrup">
+          </div>
+          <div class="feld" data-zeige="bewerbung">
+            <label for="cv">Lebenslauf <small>freiwillig</small></label>
+            <input id="cv" name="cv" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+          </div>
         </div>
 
-        <div class="feld" data-zeige="bad">
-          <label for="bad">Was soll neu werden?</label>
-          <input id="bad" name="bad" type="text" placeholder="z. B. Dusche statt Wanne, ca. 8 m²">
+        <div class="pflicht">
+          <div class="feld">
+            <label for="kontakt">Telefon oder E-Mail <abbr title="Pflichtfeld">*</abbr></label>
+            <input id="kontakt" name="kontakt" type="text" autocomplete="tel" placeholder="z. B. 0171 2345678 oder name@web.de" aria-describedby="kontakt-fehler">
+            <p class="fehler" id="kontakt-fehler" hidden>Bitte eine Telefonnummer oder E-Mail-Adresse angeben, damit Jörg Ehling Sie erreicht.</p>
+          </div>
+          <div class="feld-reihe">
+            <div class="feld"><label for="name">Name <small>freiwillig</small></label><input id="name" name="name" type="text" autocomplete="name"></div>
+            <div class="feld" data-zeige="wartung heizung bad"><label for="ort">Straße und Ort <small>freiwillig</small></label><input id="ort" name="ort" type="text" autocomplete="street-address" placeholder="z. B. Lindenweg, Ochtrup"></div>
+          </div>
+          <div class="feld"><label for="nachricht" id="nachricht-label">Nachricht <small>freiwillig</small></label><textarea id="nachricht" name="nachricht" rows="3" placeholder="Was sollte Jörg Ehling vorher wissen?"></textarea></div>
         </div>
 
-        <fieldset class="chips" data-zeige="wartung heizung bad sanitaer">
-          <legend>Wann passt es Ihnen?</legend>
-          <label><input type="radio" name="wann" value="so bald wie möglich"><span>So bald wie möglich</span></label>
-          <label><input type="radio" name="wann" value="in den nächsten Wochen"><span>In den nächsten Wochen</span></label>
-          <label><input type="radio" name="wann" value="ist nicht eilig"><span>Ist nicht eilig</span></label>
-        </fieldset>
-
-        <div class="feld-reihe">
-          <div class="feld"><label for="name">Name <abbr title="Pflichtfeld">*</abbr></label><input id="name" name="name" type="text" autocomplete="name" required></div>
-          <div class="feld"><label for="tel">Telefon <abbr title="Pflichtfeld">*</abbr></label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
-        </div>
-        <div class="feld"><label for="ort">Straße und Ort</label><input id="ort" name="ort" type="text" autocomplete="street-address" placeholder="z. B. Lindenweg, Ochtrup"></div>
-        <div class="feld"><label for="nachricht">Nachricht<span class="pflicht-frage" data-zeige="frage"> <abbr title="Pflichtfeld">*</abbr></span></label><textarea id="nachricht" name="nachricht" rows="3" placeholder="Was sollte Jörg Ehling vorher wissen?"></textarea></div>
-
-        <button class="btn btn-rot btn-voll" type="submit" id="senden">Anfrage senden</button>
+        <button class="btn btn-rot btn-voll" type="submit" id="senden">Wartung anfragen</button>
         <p class="hinweis-entwurf">Entwurf: Dieses Formular wird nicht versendet.</p>
-        <p class="danke" id="danke" hidden>Danke! In der fertigen Seite käme Ihre Anfrage jetzt als Mail bei Jörg Ehling an. Im Entwurf wird nichts versendet.</p>
+        <p class="danke" id="danke" hidden></p>
       </form>
 
       <div class="anfrage-aufkleber">
         <figure class="aufkleber aufkleber-gross" id="live" aria-live="polite">
           <div class="ak-kopf">
-            <span class="ak-klein">Ihr Kundendienst</span>
+            <span class="ak-klein" id="live-klein">Ihr Kundendienst</span>
             <span class="ak-name">Jörg Ehling</span>
             <span class="ak-zeile">Installation und Heizungsbau · Meisterbetrieb</span>
           </div>
           <div class="ak-koerper">
             <div class="ak-feld"><span>Anliegen</span><i class="hand" data-live="anliegen">Wartung</i></div>
-            <div class="ak-feld" data-zeile="geraet"><span>Gerät</span><i class="hand" data-live="geraet"></i></div>
+            <div class="ak-feld" data-zeile="wart"><span>Was ist los</span><i class="hand" data-live="wart"></i></div>
+            <div class="ak-feld" data-zeile="geraet"><span>Heizung</span><i class="hand" data-live="geraet"></i></div>
             <div class="ak-feld" data-zeile="letzte"><span>Letzte Wartung</span><i class="hand" data-live="letzte"></i></div>
-            <div class="ak-feld" data-zeile="bad"><span>Wunsch</span><i class="hand" data-live="bad"></i></div>
+            <div class="ak-feld" data-zeile="wunsch"><span>Wunsch</span><i class="hand" data-live="wunsch"></i></div>
+            <div class="ak-feld" data-zeile="flaeche"><span>Fläche</span><i class="hand" data-live="flaeche"></i></div>
+            <div class="ak-feld" data-zeile="baujahr"><span>Baujahr</span><i class="hand" data-live="baujahr"></i></div>
+            <div class="ak-feld" data-zeile="teile"><span>Neu</span><i class="hand" data-live="teile"></i></div>
+            <div class="ak-feld" data-zeile="badm2"><span>Größe</span><i class="hand" data-live="badm2"></i></div>
             <div class="ak-feld" data-zeile="wann"><span>Termin</span><i class="hand" data-live="wann"></i></div>
+            <div class="ak-feld" data-zeile="stelle"><span>Sucht</span><i class="hand" data-live="stelle"></i></div>
             <div class="ak-feld" data-zeile="nachricht"><span>Frage</span><i class="hand" data-live="nachricht"></i></div>
-            <div class="ak-feld"><span>Kunde</span><i class="hand" data-live="name"></i></div>
+            <div class="ak-feld"><span id="live-wer">Kunde</span><i class="hand" data-live="wer"></i></div>
             <div class="ak-tel-klein">02553 97 79 60</div>
           </div>
         </figure>
@@ -277,38 +375,23 @@
   </div>
 </section>
 
-<!-- Ausbildung -->
+<!-- Ausbildung und Jobs -->
 <section id="ausbildung" class="block ausbildung">
   <div class="wrap aus-in">
     <div>
-      <p class="dachzeile">Praktikum und Ausbildung</p>
-      <h2>Handwerk ausprobieren, in Ochtrup</h2>
+      <p class="dachzeile">Praktikum, Ausbildung und Jobs</p>
+      <h2>Handwerk in Ochtrup</h2>
       <p>Jörg Ehling bietet Praktikums- und Ausbildungsplätze im SHK-Handwerk an. Der Ausbildungsberuf heißt Anlagenmechaniker/in für Sanitär-, Heizungs- und Klimatechnik.</p>
+      <p class="aus-tel">Lieber sprechen? <a href="tel:+492553977960">02553 97 79 60</a></p>
+    </div>
+    <div>
       <ul class="aus-liste">
         <li><b>Praktikum</b><span>Den Beruf ein paar Tage kennenlernen: Heizung, Bad, Wasser.</span></li>
         <li><b>Ausbildung</b><span>Anlagenmechaniker/in SHK, im Meisterbetrieb.</span></li>
+        <li><b>Gesellen, Fachkräfte, Helfer</b><span>Gern auch initiativ. Ob gerade etwas frei ist, erfahren Sie im Gespräch.</span></li>
       </ul>
-      <p class="aus-tel">Lieber sprechen? <a href="tel:+492553977960">02553 97 79 60</a></p>
+      <a class="btn btn-rot btn-voll aus-cta" href="#anfrage" data-weiche="bewerbung">Bewerben in zwei Minuten</a>
     </div>
-    <form class="formular bewerbung" id="bewerbung" novalidate>
-      <h3>Bewerbung in zwei Minuten</h3>
-      <p class="bew-lead">Ein paar Angaben genügen. Ob gerade ein Platz frei ist, erfahren Sie im Gespräch.</p>
-      <fieldset class="chips">
-        <legend>Was interessiert Sie?</legend>
-        <label><input type="radio" name="art" value="praktikum" checked><span>Praktikum</span></label>
-        <label><input type="radio" name="art" value="ausbildung"><span>Ausbildung</span></label>
-      </fieldset>
-      <div class="feld-reihe">
-        <div class="feld"><label for="b-name">Name <abbr title="Pflichtfeld">*</abbr></label><input id="b-name" name="name" type="text" autocomplete="name" required></div>
-        <div class="feld"><label for="b-tel">Telefon <abbr title="Pflichtfeld">*</abbr></label><input id="b-tel" name="tel" type="tel" autocomplete="tel" required></div>
-      </div>
-      <div class="feld"><label for="b-schule">Alter und Schule</label><input id="b-schule" name="schule" type="text" placeholder="z. B. 15, Realschule Ochtrup"></div>
-      <div class="feld"><label for="b-text">Ein paar Sätze zu Ihnen</label><textarea id="b-text" name="text" rows="3" placeholder="Was reizt Sie am Handwerk?"></textarea></div>
-      <div class="feld"><label for="b-cv">Lebenslauf (wenn vorhanden)</label><input id="b-cv" name="cv" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"></div>
-      <button class="btn btn-rot btn-voll" type="submit">Bewerbung senden</button>
-      <p class="hinweis-entwurf">Entwurf: Dieses Formular wird nicht versendet.</p>
-      <p class="danke" id="bew-danke" hidden>Danke! In der fertigen Seite käme Ihre Bewerbung jetzt als Mail bei Jörg Ehling an, mit Lebenslauf im Anhang. Im Entwurf wird nichts versendet.</p>
-    </form>
   </div>
 </section>
 
@@ -319,7 +402,7 @@
       <p class="dachzeile">Kontakt</p>
       <h2>Jörg Ehling<br><span>Installation und Heizungsbau</span></h2>
       <p class="adresse">Amselstraße 10<br>48607 Ochtrup</p>
-      <p class="kontakt-wege"><a class="kartenlink" href="#anfrage" data-anliegen="frage">Nachricht schreiben →</a><br><a class="kartenlink" href="https://www.google.com/maps/search/?api=1&amp;query=Amselstra%C3%9Fe+10%2C+48607+Ochtrup" rel="noopener" target="_blank">Route planen ↗</a></p>
+      <p class="kontakt-wege"><a class="kartenlink" href="#anfrage" data-weiche="frage">Nachricht schreiben →</a><br><a class="kartenlink" href="https://www.google.com/maps/search/?api=1&amp;query=Amselstra%C3%9Fe+10%2C+48607+Ochtrup" rel="noopener" target="_blank">Route planen ↗</a></p>
     </div>
     <dl class="kontakt-liste">
       <dt>Telefon</dt><dd><a href="tel:+492553977960">02553 97 79 60</a></dd>
@@ -343,7 +426,7 @@
 
 <nav class="handyleiste" aria-label="Schnellkontakt">
   <a href="tel:+492553977960" class="hl-tel">Anrufen</a>
-  <a href="#anfrage" class="hl-anfrage">Wartung anfragen</a>
+  <a href="#anfrage" class="hl-anfrage">Anfragen</a>
 </nav>
 
 <script src="js/main.js"></script>

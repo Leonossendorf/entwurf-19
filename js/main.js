@@ -1,19 +1,41 @@
-// Anfrage: Felder je nach Anliegen zeigen und den Aufkleber live ausfüllen
+// Ein Formular mit Weichen: Felder je Anliegen zeigen und den Aufkleber live ausfüllen
 (function () {
   var form = document.getElementById('formular');
   if (!form) return;
-  var namen = { wartung: 'Wartung', heizung: 'Neue Heizung', bad: 'Bad', sanitaer: 'Sanitär', frage: 'Allgemeine Frage' };
-  var knopf = { wartung: 'Wartung anfragen', heizung: 'Anfrage senden', bad: 'Anfrage senden', sanitaer: 'Anfrage senden', frage: 'Nachricht senden' };
-  var zeilen = { geraet: ['wartung', 'heizung'], letzte: ['wartung'], bad: ['bad'], wann: ['wartung', 'heizung', 'bad', 'sanitaer'], nachricht: ['frage'] };
+
+  var namen = { wartung: 'Wartung', heizung: 'Neue Heizung', bad: 'Bad und Sanitär', frage: 'Frage', bewerbung: 'Bewerbung' };
+  var knopf = { wartung: 'Wartung anfragen', heizung: 'Neue Heizung anfragen', bad: 'Bad anfragen', frage: 'Frage senden', bewerbung: 'Bewerbung senden' };
+  var danke = {
+    wartung: 'Danke! In der fertigen Seite käme Ihre Wartungsanfrage jetzt als Mail bei Jörg Ehling an.',
+    heizung: 'Danke! In der fertigen Seite käme Ihre Anfrage zur neuen Heizung jetzt als Mail bei Jörg Ehling an.',
+    bad: 'Danke! In der fertigen Seite käme Ihre Anfrage zum Bad jetzt als Mail bei Jörg Ehling an.',
+    frage: 'Danke! In der fertigen Seite käme Ihre Frage jetzt als Mail bei Jörg Ehling an.',
+    bewerbung: 'Danke! In der fertigen Seite käme Ihre Bewerbung jetzt als Mail bei Jörg Ehling an, mit Lebenslauf im Anhang.'
+  };
+  var nachrichtLabel = { frage: 'Ihre Frage', bewerbung: 'Ein paar Sätze zu Ihnen' };
+  var nachrichtHilfe = { frage: 'Was möchten Sie wissen?', bewerbung: 'Was reizt Sie am Handwerk?' };
+  var zeilen = {
+    wart: ['wartung'], geraet: ['wartung', 'heizung'], letzte: ['wartung'],
+    wunsch: ['heizung'], flaeche: ['heizung'], baujahr: ['heizung'],
+    teile: ['bad'], badm2: ['bad'], wann: ['wartung', 'heizung', 'bad'],
+    stelle: ['bewerbung'], nachricht: ['frage']
+  };
+  var bewegt = {};
+  var zuletzt = null;
 
   function wert(name) {
-    var el = form.elements[name];
-    if (!el) return '';
-    if (el instanceof RadioNodeList || (el.length && el[0] && el[0].type === 'radio')) {
-      for (var i = 0; i < el.length; i++) if (el[i].checked) return el[i].value;
+    var els = form.querySelectorAll('[name="' + name + '"]');
+    if (!els.length) return '';
+    if (els[0].type === 'radio') {
+      for (var i = 0; i < els.length; i++) if (els[i].checked) return els[i].value;
       return '';
     }
-    return (el.value || '').trim();
+    if (els[0].type === 'checkbox') {
+      var v = [];
+      els.forEach(function (e) { if (e.checked) v.push(e.value); });
+      return v.join(', ');
+    }
+    return (els[0].value || '').trim();
   }
 
   function setze(feld, text) {
@@ -23,51 +45,71 @@
     setTimeout(function () { ziel.textContent = text; ziel.classList.remove('neu'); }, 160);
   }
 
+  function kurz(t, n) { return t.length > n ? t.slice(0, n).replace(/\s+\S*$/, '') + ' …' : t; }
+
   function aktualisieren() {
-    var anliegen = wert('anliegen') || 'wartung';
+    var a = wert('anliegen') || 'wartung';
+    if (zuletzt && zuletzt !== a) document.getElementById('danke').hidden = true;
+    zuletzt = a;
     form.querySelectorAll('[data-zeige]').forEach(function (el) {
-      el.hidden = el.getAttribute('data-zeige').split(' ').indexOf(anliegen) < 0;
+      el.hidden = el.getAttribute('data-zeige').split(' ').indexOf(a) < 0;
     });
     Object.keys(zeilen).forEach(function (k) {
       var z = document.querySelector('[data-zeile="' + k + '"]');
-      if (z) z.hidden = zeilen[k].indexOf(anliegen) < 0;
+      if (z) z.hidden = zeilen[k].indexOf(a) < 0;
     });
-    document.getElementById('senden').textContent = knopf[anliegen];
-    setze('anliegen', namen[anliegen]);
-    setze('geraet', wert('geraet'));
-    setze('letzte', wert('letzte'));
-    setze('bad', wert('bad'));
-    setze('wann', wert('wann'));
-    var m = wert('nachricht');
-    setze('nachricht', m.length > 30 ? m.slice(0, 30).replace(/\s+\S*$/, '') + ' …' : m);
-    var n = wert('name'), o = wert('ort');
-    setze('name', n && o ? n + ', ' + o.split(',')[0] : n);
+    document.getElementById('senden').textContent = knopf[a];
+    document.getElementById('nachricht-label').innerHTML = (nachrichtLabel[a] || 'Nachricht') + ' <small>freiwillig</small>';
+    document.getElementById('nachricht').placeholder = nachrichtHilfe[a] || 'Was sollte Jörg Ehling vorher wissen?';
+    document.getElementById('live-klein').textContent = a === 'bewerbung' ? 'Bewerbung bei' : 'Ihr Kundendienst';
+    document.getElementById('live-wer').textContent = a === 'bewerbung' ? 'Name' : 'Kunde';
+
+    ['flaeche', 'badm2'].forEach(function (r) {
+      var v = form.elements[r].value + ' m²';
+      document.getElementById(r + '-out').textContent = v;
+      setze(r, bewegt[r] ? 'ca. ' + v : '');
+    });
+    setze('anliegen', namen[a]);
+    ['wart', 'geraet', 'letzte', 'wunsch', 'baujahr', 'wann', 'stelle'].forEach(function (k) { setze(k, wert(k)); });
+    setze('teile', kurz(wert('teile'), 30));
+    setze('nachricht', kurz(wert('nachricht'), 30));
+    var n = wert('name'), o = wert('ort'), k = wert('kontakt');
+    var wer = n || k;
+    if (n && o && a !== 'bewerbung' && a !== 'frage') wer = n + ', ' + o.split(',')[0];
+    setze('wer', wer);
   }
 
-  form.addEventListener('input', aktualisieren);
+  function erreichbar(t) {
+    return /\S+@\S+\.\S+/.test(t) || t.replace(/\D/g, '').length >= 6;
+  }
+
+  form.addEventListener('input', function (e) {
+    if (e.target.type === 'range') bewegt[e.target.name] = true;
+    if (e.target.id === 'kontakt') document.getElementById('kontakt-fehler').hidden = true;
+    aktualisieren();
+  });
   form.addEventListener('change', aktualisieren);
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    document.getElementById('danke').hidden = false;
+    var feld = document.getElementById('kontakt');
+    var d = document.getElementById('danke');
+    if (!erreichbar(feld.value.trim())) {
+      document.getElementById('kontakt-fehler').hidden = false;
+      d.hidden = true;
+      feld.focus();
+      return;
+    }
+    d.textContent = danke[wert('anliegen') || 'wartung'] + ' Im Entwurf wird nichts versendet.';
+    d.hidden = false;
   });
 
-  // Links aus den Leistungen wählen das passende Anliegen vor
-  document.querySelectorAll('[data-anliegen]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var r = form.querySelector('input[name="anliegen"][value="' + a.getAttribute('data-anliegen') + '"]');
+  // Links auf der Seite wählen die passende Weiche vor
+  document.querySelectorAll('[data-weiche]').forEach(function (l) {
+    l.addEventListener('click', function () {
+      var r = form.querySelector('input[name="anliegen"][value="' + l.getAttribute('data-weiche') + '"]');
       if (r) { r.checked = true; aktualisieren(); }
     });
   });
 
   aktualisieren();
-})();
-
-// Bewerbung: im Entwurf nur bestätigen
-(function () {
-  var f = document.getElementById('bewerbung');
-  if (!f) return;
-  f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('bew-danke').hidden = false;
-  });
 })();
