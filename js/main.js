@@ -2,8 +2,9 @@
 (function () {
   var form = document.getElementById('formular');
   if (!form) return;
-  var namen = { wartung: 'Wartung', heizung: 'Neue Heizung', bad: 'Bad', sanitaer: 'Sanitär / Sonstiges' };
-  var zeilen = { geraet: ['wartung', 'heizung'], letzte: ['wartung'], bad: ['bad'] };
+  var namen = { wartung: 'Wartung', heizung: 'Neue Heizung', bad: 'Bad', sanitaer: 'Sanitär', frage: 'Allgemeine Frage' };
+  var knopf = { wartung: 'Wartung anfragen', heizung: 'Anfrage senden', bad: 'Anfrage senden', sanitaer: 'Anfrage senden', frage: 'Nachricht senden' };
+  var zeilen = { geraet: ['wartung', 'heizung'], letzte: ['wartung'], bad: ['bad'], wann: ['wartung', 'heizung', 'bad', 'sanitaer'], nachricht: ['frage'] };
 
   function wert(name) {
     var el = form.elements[name];
@@ -31,11 +32,14 @@
       var z = document.querySelector('[data-zeile="' + k + '"]');
       if (z) z.hidden = zeilen[k].indexOf(anliegen) < 0;
     });
+    document.getElementById('senden').textContent = knopf[anliegen];
     setze('anliegen', namen[anliegen]);
     setze('geraet', wert('geraet'));
     setze('letzte', wert('letzte'));
     setze('bad', wert('bad'));
     setze('wann', wert('wann'));
+    var m = wert('nachricht');
+    setze('nachricht', m.length > 30 ? m.slice(0, 30).replace(/\s+\S*$/, '') + ' …' : m);
     var n = wert('name'), o = wert('ort');
     setze('name', n && o ? n + ', ' + o.split(',')[0] : n);
   }
@@ -56,4 +60,14 @@
   });
 
   aktualisieren();
+})();
+
+// Bewerbung: im Entwurf nur bestätigen
+(function () {
+  var f = document.getElementById('bewerbung');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('bew-danke').hidden = false;
+  });
 })();

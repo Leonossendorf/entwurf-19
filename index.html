@@ -181,8 +181,8 @@
 <section id="anfrage" class="block anfrage-block">
   <div class="wrap">
     <p class="dachzeile">Anfrage</p>
-    <h2>Wartung oder Anfrage, in einer Minute</h2>
-    <p class="lead">Ein paar Angaben genügen. Der Aufkleber füllt sich beim Ausfüllen, so sehen Sie, was bei Jörg Ehling ankommt.</p>
+    <h2>Anfrage oder Nachricht, in einer Minute</h2>
+    <p class="lead">Wartung, neue Heizung, Bad oder einfach eine Frage: Ein paar Angaben genügen. Der Aufkleber füllt sich beim Ausfüllen, so sehen Sie, was bei Jörg Ehling ankommt.</p>
 
     <div class="anfrage">
       <form class="formular" id="formular" novalidate>
@@ -191,7 +191,8 @@
           <label><input type="radio" name="anliegen" value="wartung" checked><span>Wartung</span></label>
           <label><input type="radio" name="anliegen" value="heizung"><span>Neue Heizung</span></label>
           <label><input type="radio" name="anliegen" value="bad"><span>Bad</span></label>
-          <label><input type="radio" name="anliegen" value="sanitaer"><span>Sanitär / Sonstiges</span></label>
+          <label><input type="radio" name="anliegen" value="sanitaer"><span>Sanitär</span></label>
+          <label><input type="radio" name="anliegen" value="frage"><span>Allgemeine Frage</span></label>
         </fieldset>
 
         <fieldset class="chips" data-zeige="wartung heizung">
@@ -231,9 +232,9 @@
           <div class="feld"><label for="tel">Telefon <abbr title="Pflichtfeld">*</abbr></label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
         </div>
         <div class="feld"><label for="ort">Straße und Ort</label><input id="ort" name="ort" type="text" autocomplete="street-address" placeholder="z. B. Lindenweg, Ochtrup"></div>
-        <div class="feld"><label for="nachricht">Nachricht</label><textarea id="nachricht" name="nachricht" rows="3" placeholder="Was sollte Jörg Ehling vorher wissen?"></textarea></div>
+        <div class="feld"><label for="nachricht">Nachricht<span class="pflicht-frage" data-zeige="frage"> <abbr title="Pflichtfeld">*</abbr></span></label><textarea id="nachricht" name="nachricht" rows="3" placeholder="Was sollte Jörg Ehling vorher wissen?"></textarea></div>
 
-        <button class="btn btn-rot btn-voll" type="submit">Anfrage senden</button>
+        <button class="btn btn-rot btn-voll" type="submit" id="senden">Anfrage senden</button>
         <p class="hinweis-entwurf">Entwurf: Dieses Formular wird nicht versendet.</p>
         <p class="danke" id="danke" hidden>Danke! In der fertigen Seite käme Ihre Anfrage jetzt als Mail bei Jörg Ehling an. Im Entwurf wird nichts versendet.</p>
       </form>
@@ -250,7 +251,8 @@
             <div class="ak-feld" data-zeile="geraet"><span>Gerät</span><i class="hand" data-live="geraet"></i></div>
             <div class="ak-feld" data-zeile="letzte"><span>Letzte Wartung</span><i class="hand" data-live="letzte"></i></div>
             <div class="ak-feld" data-zeile="bad"><span>Wunsch</span><i class="hand" data-live="bad"></i></div>
-            <div class="ak-feld"><span>Termin</span><i class="hand" data-live="wann"></i></div>
+            <div class="ak-feld" data-zeile="wann"><span>Termin</span><i class="hand" data-live="wann"></i></div>
+            <div class="ak-feld" data-zeile="nachricht"><span>Frage</span><i class="hand" data-live="nachricht"></i></div>
             <div class="ak-feld"><span>Kunde</span><i class="hand" data-live="name"></i></div>
             <div class="ak-tel-klein">02553 97 79 60</div>
           </div>
@@ -282,17 +284,31 @@
       <p class="dachzeile">Praktikum und Ausbildung</p>
       <h2>Handwerk ausprobieren, in Ochtrup</h2>
       <p>Jörg Ehling bietet Praktikums- und Ausbildungsplätze im SHK-Handwerk an. Der Ausbildungsberuf heißt Anlagenmechaniker/in für Sanitär-, Heizungs- und Klimatechnik.</p>
-      <p>Ob gerade ein Platz frei ist? Einfach anrufen oder eine kurze Nachricht schicken.</p>
-      <div class="hero-cta">
-        <a class="btn btn-rot" href="tel:+492553977960">Anrufen</a>
-        <a class="btn btn-hell" href="mailto:joerg-ehling@shk-ehling.de?subject=Praktikum%20oder%20Ausbildung">Nachricht schreiben</a>
-      </div>
+      <ul class="aus-liste">
+        <li><b>Praktikum</b><span>Den Beruf ein paar Tage kennenlernen: Heizung, Bad, Wasser.</span></li>
+        <li><b>Ausbildung</b><span>Anlagenmechaniker/in SHK, im Meisterbetrieb.</span></li>
+      </ul>
+      <p class="aus-tel">Lieber sprechen? <a href="tel:+492553977960">02553 97 79 60</a></p>
     </div>
-    <ul class="aus-liste">
-      <li><b>Praktikum</b><span>Den Beruf ein paar Tage kennenlernen: Heizung, Bad, Wasser.</span></li>
-      <li><b>Ausbildung</b><span>Anlagenmechaniker/in SHK, im Meisterbetrieb.</span></li>
-      <li><b>Bewerbung</b><span>Am einfachsten: kurz anrufen.</span></li>
-    </ul>
+    <form class="formular bewerbung" id="bewerbung" novalidate>
+      <h3>Bewerbung in zwei Minuten</h3>
+      <p class="bew-lead">Ein paar Angaben genügen. Ob gerade ein Platz frei ist, erfahren Sie im Gespräch.</p>
+      <fieldset class="chips">
+        <legend>Was interessiert Sie?</legend>
+        <label><input type="radio" name="art" value="praktikum" checked><span>Praktikum</span></label>
+        <label><input type="radio" name="art" value="ausbildung"><span>Ausbildung</span></label>
+      </fieldset>
+      <div class="feld-reihe">
+        <div class="feld"><label for="b-name">Name <abbr title="Pflichtfeld">*</abbr></label><input id="b-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="feld"><label for="b-tel">Telefon <abbr title="Pflichtfeld">*</abbr></label><input id="b-tel" name="tel" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="feld"><label for="b-schule">Alter und Schule</label><input id="b-schule" name="schule" type="text" placeholder="z. B. 15, Realschule Ochtrup"></div>
+      <div class="feld"><label for="b-text">Ein paar Sätze zu Ihnen</label><textarea id="b-text" name="text" rows="3" placeholder="Was reizt Sie am Handwerk?"></textarea></div>
+      <div class="feld"><label for="b-cv">Lebenslauf (wenn vorhanden)</label><input id="b-cv" name="cv" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"></div>
+      <button class="btn btn-rot btn-voll" type="submit">Bewerbung senden</button>
+      <p class="hinweis-entwurf">Entwurf: Dieses Formular wird nicht versendet.</p>
+      <p class="danke" id="bew-danke" hidden>Danke! In der fertigen Seite käme Ihre Bewerbung jetzt als Mail bei Jörg Ehling an, mit Lebenslauf im Anhang. Im Entwurf wird nichts versendet.</p>
+    </form>
   </div>
 </section>
 
@@ -303,7 +319,7 @@
       <p class="dachzeile">Kontakt</p>
       <h2>Jörg Ehling<br><span>Installation und Heizungsbau</span></h2>
       <p class="adresse">Amselstraße 10<br>48607 Ochtrup</p>
-      <a class="kartenlink" href="https://www.google.com/maps/search/?api=1&amp;query=Amselstra%C3%9Fe+10%2C+48607+Ochtrup" rel="noopener" target="_blank">Route planen ↗</a>
+      <p class="kontakt-wege"><a class="kartenlink" href="#anfrage" data-anliegen="frage">Nachricht schreiben →</a><br><a class="kartenlink" href="https://www.google.com/maps/search/?api=1&amp;query=Amselstra%C3%9Fe+10%2C+48607+Ochtrup" rel="noopener" target="_blank">Route planen ↗</a></p>
     </div>
     <dl class="kontakt-liste">
       <dt>Telefon</dt><dd><a href="tel:+492553977960">02553 97 79 60</a></dd>
